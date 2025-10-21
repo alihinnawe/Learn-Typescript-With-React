@@ -1,5 +1,13 @@
 
-export default function TestComponent ({title, description }: {title: string; description: string}) {
+import { type ReactNode } from "react";
+
+type ComponentProps = {
+    title: string,
+    description: string,
+    children: ReactNode
+}
+
+export default function TestComponent ({title, description }: ComponentProps) {
 
     return (    
     <main>

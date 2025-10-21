@@ -6,7 +6,7 @@ function App() {
   return (
     <>
      <p>My first Typecript project</p>
-     <TestComponent title="adding props including type" description="click here!"/>
+     <TestComponent title="adding props including type" description="click here!">testChildren</TestComponent>
     </>
   )
 }
