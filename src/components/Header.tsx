@@ -11,7 +11,7 @@ export default function Header ({image, children} : imageProps ) {
 
     return <>
         <p>This is my image</p>
-        <img src={image.src} alt={image.alt} />
+        <img {...image} />
         {children}
     </>
 
