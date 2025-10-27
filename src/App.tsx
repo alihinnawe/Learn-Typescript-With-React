@@ -10,7 +10,7 @@ function App() {
      <p>My first Typecript project</p>
       <TestComponent title="adding props including type" >PropsWithChildren</TestComponent>
      <EventScheduler />
-     <Header image ={{ src:"gg", alt:"alternative image description"}} />;
+     <Header image ={{ src:"gg", alt:"alternative image description"}}>childrenIsHere</Header>;
     </>
   )
 }

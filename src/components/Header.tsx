@@ -1,9 +1,18 @@
 
+import { type ReactNode } from 'react';
+  type imageProps = {
 
-export default function Header ({image} : {image: {src: string; alt:string} }) {
+        image: {src: string; alt:string},
+        children: ReactNode
+  }
+
+
+export default function Header ({image, children} : imageProps ) {
+
     return <>
         <p>This is my image</p>
-        <img src={image.src} alt={image.alt} /> 
+        <img src={image.src} alt={image.alt} />
+        {children}
     </>
 
 
