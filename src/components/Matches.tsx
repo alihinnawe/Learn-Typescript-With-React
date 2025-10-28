@@ -15,8 +15,12 @@ export default function Matches () {
 function handleAddMatch () {
     setMatches((previousMatches) => [...previousMatches, {id: Math.random() ,title: "RealMadrid vs Barcelona", score: "2-1"}] );
 }
+
+function handleDeleteMatch (id : number) {
+    setMatches((prevMatches) => prevMatches.filter((match) => match.id !== id));
+}
     return <>
         <button onClick={handleAddMatch}>Add a Match</button>
-        < MatchesList matchesl={matches}/>
+        < MatchesList matchesl={matches} onDeleteMatch={handleDeleteMatch}/>
     </>
 }
