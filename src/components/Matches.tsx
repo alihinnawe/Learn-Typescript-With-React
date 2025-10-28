@@ -1,13 +1,14 @@
 import { useState } from "react";
 import OneMatch from "./Match";
+export type singleMatch = {
+    id: number;
+    title : string;
+    score: string
+
+}
 export default function Matches () {
 
-    type singleMatch = {
-        id: number;
-        title : string;
-        score: string
 
-    }
     const [matches, setMatches] =  useState<singleMatch[]>([]);
 function handleAddMatch () {
     setMatches((previousMatches) => [...previousMatches, {id: Math.random() ,title: "RealMadrid vs Barcelona", score: "2-1"}] );

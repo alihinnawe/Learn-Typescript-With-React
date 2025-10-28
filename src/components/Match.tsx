@@ -1,9 +1,6 @@
-type singleMatch1 ={
-    title: string;
-    score :string
-}
+import { type singleMatch as sm}  from "./Matches"
 
-export default function OneMatch ({title , score} : singleMatch1) {
+export default function OneMatch ({title , score} : sm) {
 
     return (
         <>
