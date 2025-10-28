@@ -17,7 +17,7 @@ function handleAddMatch () {
         <button onClick={handleAddMatch}>Add a Match</button>
         {matches.map((match) => <ul>
             <li key={match.id}>
-                <OneMatch title={match.title} score={match.score}/>
+                <OneMatch id={match.id} title={match.title} score={match.score}/>
             </li>
         </ul>)}
     </>
