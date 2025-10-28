@@ -1,6 +1,6 @@
-import { type singleMatch as sm}  from "./Matches"
+import { type singleMatch as singlem}  from "./Matches"
 
-export default function OneMatch ({id, title , score} : sm) {
+export default function OneMatch ({id, title , score} : singlem) {
 
     return (
         <> {id}

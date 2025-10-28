@@ -1,5 +1,7 @@
 import { useState } from "react";
 import OneMatch from "./Match";
+import MatchesList from "./MatchesList";
+
 export type singleMatch = {
     id: number;
     title : string;
@@ -15,10 +17,6 @@ function handleAddMatch () {
 }
     return <>
         <button onClick={handleAddMatch}>Add a Match</button>
-        {matches.map((match) => <ul>
-            <li key={match.id}>
-                <OneMatch id={match.id} title={match.title} score={match.score}/>
-            </li>
-        </ul>)}
+        < MatchesList matchesl={matches}/>
     </>
 }
