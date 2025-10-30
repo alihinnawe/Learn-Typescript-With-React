@@ -1,11 +1,18 @@
-import { type singleMatch as singlem}  from "./Matches"
+import type { singleMatch } from "./Matches";
 
-export default function OneMatch ({id, title , score} : singlem) {
+type MatchProps = singleMatch & {
+    onDelete: (id: number) => void;
+};
 
+export default function OneMatch({ id, title, score, onDelete }: MatchProps) {
     return (
-        <> {id}
-            {title}
-            {score}
-        </>
-    )
+        <div className="match-item">
+            <div className="match-info">
+                {title} - {score}
+            </div>
+            <button className="delete-match-button" onClick={() => onDelete(id)}>
+                Delete
+            </button>
+        </div>
+    );
 }
