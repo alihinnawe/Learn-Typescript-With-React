@@ -2,16 +2,21 @@ import React, { useRef , useState} from "react";
 import Member   from "./Member.tsx" 
 
 export type MemberType = {
+        id: number;
         name : string;
         address: string
     }
 
+    
 export default function Members () {
    
     let nameRef = useRef <HTMLInputElement | null> (null);
     let addressRef = useRef <HTMLInputElement | null> (null);
     const [members, setMembers] =  useState <MemberType []> ([]);
 
+    function handleDeleteMember (id : number) {
+        setMembers ((members).filter ((member)=> member.id != id))
+    }   
     function handleAddNewMember (event : React.FormEvent) {
             event?.preventDefault();
             const name1 = nameRef.current?.value || '';
@@ -20,7 +25,7 @@ export default function Members () {
                     alert("Please fill in both fields.");
               return;                  
                 }
-            setMembers((prev) => [...prev, { name: name1, address: address1 }]);
+            setMembers((prev) => [...prev, { id: Date.now() ,name: name1, address: address1 }]);
 
     }
     return (
@@ -34,7 +39,7 @@ export default function Members () {
                 <input id="address" ref= {addressRef} />
                 <button>Add a new Member: </button>
             </form>
-            <Member membersList = {members} />
+            <Member membersList = {members} onDelete={handleDeleteMember} />
         </>
     )
 }
