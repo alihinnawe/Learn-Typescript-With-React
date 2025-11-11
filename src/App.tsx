@@ -3,7 +3,7 @@ import Matches from './components/Matches.tsx'
 import AddMatch from "./components/AddMatch.tsx"
 import Members from './components/Members/Members.tsx'
 import DiscriminatedUnions from "./components/DiscriminatedUnions.tsx"
-
+import ComponentsType from './components/Members/ComponentsPropsWithoutRef1.tsx'
 function App() {
   // Define a delete handler function
   const handleDelete = (id: number) => {
@@ -18,6 +18,7 @@ function App() {
           label: "Click Me",
           onClick: () => alert("Button clicked!"),
         }} />
+        <ComponentsType el='anchor'/>
     </>
   )
 }
