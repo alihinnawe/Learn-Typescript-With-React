@@ -1,26 +1,27 @@
-import './App.css'
-import Matches from './components/Matches.tsx'
-import AddMatch from "./components/AddMatch.tsx"
-import Members from './components/Members/Members.tsx'
-import DiscriminatedUnions from "./components/DiscriminatedUnions.tsx"
-import ComponentsType from './components/Members/ComponentsPropsWithoutRef1.tsx'
+import './App.css';
+import Matches from './components/Matches';
+import AddMatch from "./components/AddMatch";
+import DiscriminatedUnions from "./components/DiscriminatedUnions";
+import Container from './components/PolymorphicComponenets.tsx';
 function App() {
-  // Define a delete handler function
   const handleDelete = (id: number) => {
-    console.log(`Deleted member with id: ${id}`)
-  }
+    console.log(`Deleted member with id: ${id}`);
+  };
 
   return (
     <>
-      <AddMatch />
-      <Members />
-      <DiscriminatedUnions kind='button' props={{
+      <DiscriminatedUnions
+        kind="button"
+        props={{
           label: "Click Me",
           onClick: () => alert("Button clicked!"),
-        }} />
-        <ComponentsType el='anchor'/>
+        }}
+      />
+      <Container as="button" type="button" onClick={() => alert("please enter your name")}>
+        Click Me
+      </Container>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
