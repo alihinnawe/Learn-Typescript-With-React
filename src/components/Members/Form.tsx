@@ -2,12 +2,14 @@ import { type ComponentPropsWithoutRef, type ElementType, type FormEvent, forwar
 
 import InputPlayers from "./InputPlayers";
 import PolymorphicPropsContainer from "../PolyphormicPropsContainer";
-
+export type FormHandle = {
+    clear : () => void;
+}
 type FormProps = ComponentPropsWithoutRef <'form'> & {
     onSave : (value: unknown) => void;
 };
 
-const FinalForm = forwardRef  (function Form({onSave, children, ...otherProps} : FormProps, ref) {
+const FinalForm = forwardRef  <FormHandle, FormProps>(function Form({onSave, children, ...otherProps} : FormProps, ref) {
     const formRef =  useRef<HTMLFormElement>(null);
     
     useImperativeHandle(ref, () => {
