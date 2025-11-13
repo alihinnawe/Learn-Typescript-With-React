@@ -8,16 +8,18 @@ type FormProps = ComponentPropsWithoutRef <'form'> & {
 };
 
 export default function Form ({onSave, children, ...otherProps} : FormProps) {
+    const formRef =  useRef<HTMLFormElement>(null);
     function handleFormSubmission (event : FormEvent<HTMLFormElement>) {
             event.preventDefault();
             const data = new FormData(event.currentTarget);
             const finalData = Object.fromEntries(data);
             onSave(finalData);
+            formRef.current?.reset();
 
 
     }
 return (
-    <form onSubmit={handleFormSubmission} {...otherProps}>
+    <form onSubmit={handleFormSubmission} {...otherProps} ref={formRef}>
         {children}
     </form>
  )
